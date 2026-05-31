@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GBIC Library Kanak Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .view-fade { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="h-full text-slate-800 antialiased flex flex-col md:flex-row overflow-y-auto md:overflow-hidden bg-slate-900">
+
+    <!-- ========================================== -->
+    <!-- 1. SIDEBAR NAVIGATION (ORIGINAL LAYOUT)    -->
+    <!-- ========================================== -->
+    <aside class="w-full md:w-80 bg-slate-950 text-slate-200 flex flex-col justify-between shrink-0 z-30 border-b md:border-b-0 md:border-r border-slate-800 shadow-2xl">
+        <div>
+            <!-- Header Brand Block -->
+            <div class="p-4 md:p-6 border-b border-slate-800 flex items-center justify-between bg-slate-950/50">
+                <div class="flex items-center gap-3">
+                    <img src="logo.webp" alt="GBIC Logo" class="w-9 h-9 md:w-10 md:h-10 object-contain shrink-0 rounded-lg">
+                    <div>
+                        <h1 class="font-extrabold text-xs md:text-sm text-white uppercase tracking-tight">GBIC Library</h1>
+                        <p class="text-[9px] md:text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Kanak Portal</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="px-6 pt-4 pb-1 hidden md:block">
+                <span class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Select Department</span>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <div class="overflow-x-auto md:overflow-visible">
+                <nav class="flex md:flex-col px-4 py-3 md:py-4 gap-2 min-w-max md:min-w-0" id="sidebar-nav">
+                    <a href="#dashboard-home" class="whitespace-nowrap flex items-center gap-2.5 px-4 py-2.5 md:py-3.5 rounded-xl text-left font-bold text-[11px] md:text-xs uppercase tracking-wider transition-all bg-emerald-600 text-white shadow-lg">
+                        <i class="fa-solid fa-layer-group text-xs md:text-sm"></i>
+                        <span>Library Dashboard</span>
+                    </a>
+
+                    <a href="#pre-medical-section" class="whitespace-nowrap flex items-center gap-2.5 px-4 py-2.5 md:py-3.5 rounded-xl text-left font-bold text-[11px] md:text-xs uppercase tracking-wider transition-all text-slate-400 hover:bg-slate-800/60 hover:text-white">
+                        <i class="fa-solid fa-heart-pulse text-xs md:text-sm w-4 text-center text-emerald-400"></i>
+                        <span>Pre-Medical Notes & Papers</span>
+                    </a>
+
+                    <a href="#pre-engineering-section" class="whitespace-nowrap flex items-center gap-2.5 px-4 py-2.5 md:py-3.5 rounded-xl text-left font-bold text-[11px] md:text-xs uppercase tracking-wider transition-all text-slate-400 hover:bg-slate-800/60 hover:text-white">
+                        <i class="fa-solid fa-compass-drafting text-xs md:text-sm w-4 text-center text-teal-400"></i>
+                        <span>Pre-Engineering Notes & Papers</span>
+                    </a>
+
+                    <a href="#ics-section" class="whitespace-nowrap flex items-center gap-2.5 px-4 py-2.5 md:py-3.5 rounded-xl text-left font-bold text-[11px] md:text-xs uppercase tracking-wider transition-all text-slate-400 hover:bg-slate-800/60 hover:text-white">
+                        <i class="fa-solid fa-laptop-code text-xs md:text-sm w-4 text-center text-indigo-400"></i>
+                        <span>I.C.S Computer Notes & Papers</span>
+                    </a>
+
+                    <a href="#arts-section" class="whitespace-nowrap flex items-center gap-2.5 px-4 py-2.5 md:py-3.5 rounded-xl text-left font-bold text-[11px] md:text-xs uppercase tracking-wider transition-all text-slate-400 hover:bg-slate-800/60 hover:text-white">
+                        <i class="fa-solid fa-palette text-xs md:text-sm w-4 text-center text-amber-400"></i>
+                        <span>General Arts Notes & Papers</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="p-4 border-t border-slate-800 bg-slate-950/40 hidden md:block">
+            <a href="index.html" class="w-full text-center bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold tracking-wider text-[10px] py-3 px-4 rounded-xl uppercase block transition">
+                <i class="fa-solid fa-arrow-left mr-1.5"></i> Main Page Pe Wapis Jayein
+            </a>
+        </div>
+    </aside>
+
+    <!-- ========================================== -->
+    <!-- 2. MAIN CONTENT AREA (SCROLLABLE SECK)     -->
+    <!-- ========================================== -->
+    <main class="flex-1 flex flex-col overflow-y-auto bg-slate-900 text-slate-100">
+        
+        <!-- Top Bar Header -->
+        <header class="h-16 border-b border-slate-800 bg-slate-950 flex items-center justify-between px-4 md:px-8 shrink-0 sticky top-0 z-20 shadow-md">
+            <div class="flex items-center gap-3.5 min-w-0">
+                <img src="logo.webp" alt="GBIC Logo" class="w-8 h-8 object-contain shrink-0 rounded-lg">
+                <h2 class="text-xs md:text-sm font-black text-white uppercase tracking-wider truncate">
+                    Govt Boys Inter College Kanak — Resource Center
+                </h2>
+            </div>
+        </header>
+
+        <!-- Dynamic Page Structure Main Container -->
+        <div class="p-4 md:p-8 max-w-7xl w-full mx-auto space-y-16" id="dashboard-home">
+            
+            <!-- Welcome Info Alert Card -->
+            <div class="view-fade bg-gradient-to-r from-slate-950 to-slate-900 border border-white/5 rounded-2xl p-6 shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-[80px] pointer-events-none"></div>
+                <span class="bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[9px] font-black tracking-widest uppercase py-1 px-2.5 rounded-md">Hand-made Update</span>
+                <h3 class="text-lg md:text-2xl font-black uppercase text-white mt-2">Premium Student Materials Portal</h3>
+                <p class="text-[11px] md:text-xs text-slate-400 mt-1 font-medium leading-relaxed">Is portal par har class aur har field ke dynamic Handwritten Notes aur pichle 5 saal ke Past Papers ek hi jagah assemble kar diye gaye hain. Aap asani se neeche scroll karke ya sidebar links use karke apni matlooba files download kar sakte hain.</p>
+            </div>
+
+            <!-- ========================================================================= -->
+            <!-- DEPARTMENT 1: PRE-MEDICAL                                                 -->
+            <!-- ========================================================================= -->
+            <section id="pre-medical-section" class="view-fade space-y-6 pt-6">
+                <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                    <div class="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <div>
+                        <h3 class="text-sm md:text-base font-black uppercase tracking-wider text-white">Pre-Medical Notes & Past Papers</h3>
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">F.Sc Medical Academic Vault</p>
+                    </div>
+                </div>
+
+                <!-- Part A: 3 Subjects Expert Notes -->
+                <div class="space-y-3">
+                    <h4 class="text-[10px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-2"><i class="fa-solid fa-note-sticky text-emerald-400"></i> Subject Notes Section</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- Med Sub 1: Biology -->
+                        <div class="bg-slate-950 border border-white/5 p-4 rounded-xl flex items-center justify-between gap-4">
+                            <div>
+                                <h5 class="text-xs font-bold text-white uppercase tracking-tight">Biology Premium Notes</h5>
+                                <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Chapters Notes XI & XII</span>
+                            </div>
+                            <a href="YAHAN_PRE_MEDICAL_BIOLOGY_NOTES_PDF_LINK_DALEIN.pdf" class="bg-emerald-600 hover:bg-emerald-500 text-white p-2.5 rounded-lg text-xs transition shadow-md" title="Download PDF"><i class="fa-solid fa-download"></i></a>
+                        </div>
+                        <!-- Med Sub 2: Chemistry -->
+                        <div class="bg-slate-950 border border-white/5 p-4 rounded-xl flex items-center justify-between gap-4">
+                            <div>
+                                <h5 class="text-xs font-bold text-white uppercase tracking-tight">Chemistry Complete Notes</h5>
+                                <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Chapters Notes XI & XII</span>
+                            </div>
+                            <a href="YAHAN_PRE_MEDICAL_CHEMISTRY_NOTES_PDF_LINK_DALEIN.pdf" class="bg-emerald-600 hover:bg-emerald-500 text-white p-2.5 rounded-lg text-xs transition shadow-md" title="Download PDF"><i class="fa-solid fa-download"></i></a>
+                        </div>
+                        <!-- Med Sub 3: Physics -->
+                        <div class="bg-slate-950 border border-white/5 p-4 rounded-xl flex items-center justify-between gap-4">
+                            <div>
+                                <h5 class="text-xs font-bold text-white uppercase tracking-tight">Physics Standard Notes</h5>
+                                <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Chapters Notes XI & XII</span>
+                            </div>
+                            <a href="YAHAN_PRE_MEDICAL_PHYSICS_NOTES_PDF_LINK_DALEIN.pdf" class="bg-emerald-600 hover:bg-emerald-500 text-white p-2.5 rounded-lg text-xs transition shadow-md" title="Download PDF"><i class="fa-solid fa-download"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part B: Past Papers All Together Block -->
+                <div class="bg-slate-950/40 border border-white/5 p-5 rounded-2xl space-y-3">
+                    <h4 class="text-[10px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-2"><i class="fa-solid fa-file-pdf text-blue-400"></i> Pre-Medical 5-Year Past Papers Unified Set</h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+                        <div class="bg-slate-950 border border-white/5 p-3 rounded-xl flex flex-col justify-between gap-2 text-center">
+                            <span class="text-[11px] font-bold text-slate-300 uppercase tracking-tight">Past Papers 2025</span>
+                            <a href="YAHAN_MEDICAL_PAPERS_2025_LINK.pdf" class="bg-slate-800 hover:bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg transition">Download</a>
+                        </div>
+                        <div class="bg-slate-950 border border-white/5 p-3 rounded-xl flex flex-col justify-between gap-2 text-center">
+                            <span class="text-[11px] font-bold text-slate-300 uppercase tracking-tight">Past Papers 2024</span>
+                            <a href="YAHAN_MEDICAL_PAPERS_2024_LINK.pdf" class="bg-slate-800 hover:bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg transition">Download</a>
+                        </div>
+                        <div class="bg-slate-950 border border-white/5 p-3 rounded-xl flex flex-col justify-between gap-2 text-center">
+                            <span class="text-[11px] font-bold text-slate-300 uppercase tracking-tight">Past Papers 2023</span>
+                            <a href="YAHAN_MEDICAL_PAPERS_2023_LINK.pdf" class="bg-slate-800 hover:bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg transition">Download</a>
+                        </div>
+                        <div class="bg-slate-950 border border-white/5 p-3 rounded-xl flex flex-col justify-between gap-2 text-center">
+                            <span class="text-[11px] font-bold text-slate-300 uppercase tracking-tight">Past Papers 2022</span>
+                            <a href="YAHAN_MEDICAL_PAPERS_2022_LINK.pdf" class="bg-slate-800 hover:bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg transition">Download</a>
+                        </div>
+                        <div class="bg-slate-950 border border-white/5 p-3 rounded-xl flex flex-col justify-between gap-2 text-center">
+                            <span class="text-[11px] font-bold text-slate-300 uppercase tracking-tight">Past Papers 2021</span>
+                            <a href="YAHAN_MEDICAL_PAPERS_2021_LINK.pdf" class="bg-slate-800 hover:bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg transition">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================================================= -->
+            <!-- DEPARTMENT 2: PRE-ENGINEERING                                             -->
+            <!-- ========================================================================= -->
+            <section id="pre-engineering-section" class="view-fade space-y-6 pt-6">
+                <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                    <div class="w-9 h-9 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400"><i class="fa-solid fa-compass-drafting"></i></div>
+                    <div>
+                        <h3 class="text-sm md:text-base font-black uppercase tracking-wider text-white">Pre-Engineering Notes & Past Papers</h3>
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">F.Sc Engineering Academic Vault</p>
+                    </div>
+                </div>
+
+                <!-- Part A: 3 Subjects Expert Notes -->
+                <div class="space-y-3">
+                    <h4 class="text-[10px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-2"><i class="fa-solid fa-note-sticky text-teal-400"></i> Subject Notes Section</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- Eng Sub 1: Maths -->
+                        <div class="bg-slate-950 border border-white/5 p-4 rounded-xl flex items-center justify-between gap-4">
+                            <div>
+                                <h5 class="text-xs font-bold text-white uppercase tracking-tight">Mathematics Notes</h5>
+                                <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Chapters Notes XI & XII</span>
+                            </div>
+                            <a href="YAHAN_PRE_ENG_MATH_NOTES_PDF_LINK_DALEIN.pdf" class="bg-teal-600 hover:bg-teal-500 text-white p-2.5 rounded-lg text-xs transition shadow-md" title="Download PDF"><i class="fa-solid fa-download"></i></a>
+                        </div>
+                        <!-- Eng Sub 2: Physics -->
+                        <div class="bg-slate-950 border border-white/5 p-4 rounded-xl flex items-center justify-between gap-4">
+                            <div>
+                                <h5 class="text-xs font-bold text-white uppercase tracking-tight">Physics Expert Notes</h5>
+                                <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Chapters Notes XI & XII</span>
+                            </div>
+                            <a href="YAHAN_PRE_ENG_PHYSICS_NOTES_PDF_LINK_DALEIN.pdf" class="bg-teal-600 hover:bg-teal-500 text-white p-2.5 rounded-lg text-xs transition shadow-md" title="Download PDF"><i class="fa-solid fa-download"></i></a>
+                        </div>
+                        <!-- Eng Sub 3: Chemistry -->
+                        <div class="bg-slate-950 border border-white/5 p-4 rounded-xl flex items-center justify-between gap-4">
+                            <div>
+                                <h5 class="text-xs font-bold text-white uppercase tracking-tight">Chemistry Specialized Notes</h5>
+                                <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Chapters Notes XI & XII</span>
+                            </div>
+                            <a href="YAHAN_PRE_ENG_CHEMISTRY_NOTES_PDF_LINK_DALEIN.pdf" class="bg-teal-600 hover:bg-teal-500 text-white p-2.5 rounded-lg text-xs transition shadow-md" title="Download PDF"><i class="fa-solid fa-download"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part B: Past Papers All Together Block -->
+                <div class="bg-slate-950/40 border border-white/5 p-5 rounded-2xl space-y-3">
+                    <h4 class="text-[10px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-2"><i class="fa-solid fa-file-pdf text-blue-400"></i> Pre-Engineering 5-Year Past Papers Unified Set</h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+                        <div class="bg-slate-950 border border-white/5 p-3 rounded-xl flex flex-col justify-between gap-2 text-center">
+                            <span class="text-[11px] font-bold text-slate-300 uppercase tracking-tight">Past Papers 2025</span>
+                            <a href="YAHAN_ENGINEERING_PAPERS_2025_LINK.pdf" class="bg-slate-800 hover:bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg transition">Download</a>
+                        </div>
+                        <div class="bg-slate-950 border border-white/5 p-3 rounded-xl flex flex-col justify-between gap-2 text-center">
+                            <span class="text-[11px] font-bold text-slate-300 uppercase tracking-tight">Past Papers 2024</span>
+                            <a href="YAHAN_ENGINEERING_PAPERS_2024_LINK.pdf" class="bg-slate-800 hover:bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg transition">Download</a>
+                        </div>
+                        <div class="bg-slate-950 border border-white/5 p-3 rounded-xl flex flex-col justify-between gap-2 text-center">
+                            <span class="text-[11px] font-bold text-slate-300 uppercase tracking-tight">Past Papers 2023</span>
+                            <a href="YAHAN_ENGINEERING_PAPERS_2023_LINK.pdf" class="bg-slate-800 hover:bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg transition">Download</a>
+                        </div>
+                        <div class="bg-slate-950 border border-white/5 p-3 rounded-xl flex flex-col justify-between gap-2 text-center">
+                            <span class="text-[11px] font-bold text-slate-300 uppercase tracking-tight">Past Papers 2022</span>
+                            <a href="YAHAN_ENGINEERING_PAPERS_2022_LINK.pdf" class="bg-slate-800 hover:bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg transition">Download</a>
+                        </div>
+                        <div class="bg-slate-950 border border-white/5 p-3 rounded-xl flex flex-col justify-between gap-2 text-center">
+                            <span class="text-[11px] font-bold text-slate-300 uppercase tracking-tight">Past Papers 2021</span>
+                            <a href="YAHAN_ENGINEERING_PAPERS_2021_LINK.pdf" class="bg-slate-800 hover:bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg transition">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================================================= -->
+            <!-- DEPARTMENT 3: I.C.S COMPUTER SCIENCE                                      -->
+            <!-- ========================================================================= -->
+            <section id="ics-section" class="view-fade space-y-6 pt-6">
+                <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                    <div class="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400"><i class="fa-solid fa-laptop-code"></i></div>
+                    <div>
+                        <h3 class="text-sm md:text-base font-black uppercase tracking-wider text-white">I.C.S Computer Science Notes & Past Papers</h3>
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Intermediate In Computer Science Platform</p>
+                    </div>
+                </div>
+
+                <!-- Part A: 3 Subjects Expert Notes -->
+                <div class="space-y-3">
+                    <h4 class="text-[10px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-2"><i class="fa-solid fa-note-sticky text-indigo-400"></i> Subject Notes Section</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- ICS Sub 1: Computer Science -->
+                        <div class="bg-slate-950 border border-white/5 p-4 rounded-xl flex items-center justify-between gap-4">
+                            <div>
+                                <h5 class="text-xs font-bold text-white uppercase tracking-tight">Computer Science Notes</h5>
+                                <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">C-Language & DB IT Sheets</span>
+                            </div>
+                            <a href="YAHAN_ICS_COMPUTER_NOTES_PDF_LINK_DALEIN.pdf" class="bg-indigo-600 hover:bg-indigo-500 text-white p-2.5 rounded-lg text-xs transition shadow-md" title="Download PDF"><i class="fa-solid fa-download"></i></a>
+                        </div>
+                        <!-- ICS Sub 2: Mathematics -->
+                        <div class="bg-slate-950 border border-white/5 p-4 rounded-xl flex items-center justify-between gap-4">
+                            <div>
+                                <h5 class="text-xs font-bold text-white uppercase tracking-tight">Mathematics ICS Notes</h5>
+                                <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Chapters Notes XI & XII</span>
+                            </div>
+                            <a href="YAHAN_ICS_MATH_NOTES_PDF_LINK_DALEIN.pdf" class="bg-indigo-600 hover:bg-indigo-500 text-white p-2.5 rounded-lg text-xs transition shadow-md" title="Download PDF"><i class="fa-solid fa-download"></i></a>
+                        </div>
+                        <!-- ICS Sub 3: Physics -->
+                        <div class="bg-slate-950 border border-white/5 p-4 rounded-xl flex items-center justify-between gap-4">
+                            <div>
+                                <h5 class="text-xs font-bold text-white uppercase tracking-tight">Physics General Notes</h5>
+                                <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Chapters Notes XI & XII</span>
+                            </div>
+                            <a href="YAHAN_ICS_PHYSICS_NOTES_PDF_LINK_DALEIN.pdf" class="bg-indigo-600 hover:bg-indigo-500 text-white p-2.5 rounded-lg text-xs transition shadow-md" title="Download PDF"><i class="fa-solid fa-download"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part B: Past Papers All Together Block -->
+                <div class="bg-slate-950/40 border border-white/5 p-5 rounded-2xl space-y-3">
+                    <h4 class="text-[10px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-2"><i class="fa-solid fa-file-pdf text-blue-400"></i> I.C.S Computer 5-Year Past Papers Unified Set</h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+                        <div class="bg-slate-950 border border-white/5 p-3 rounded-xl flex flex-col justify-between gap-2 text-center">
+                            <span class="text-[11px] font-bold text-slate-300 uppercase tracking-tight">Past Papers 2025</span>
+                            <a href="YAHAN_ICS_PAPERS_2025_LINK.pdf" class="bg-slate-800 hover:bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg transition">Download</a>
+                        </div>
+                        <div class="bg-slate-950 border border-white/5 p-3 rounded-xl flex flex-col justify-between gap-2 text-center">
+                            <span class="text-[11px] font-bold text-slate-300 uppercase tracking-tight">Past Papers 2024</span>
+                            <a href="YAHAN_ICS_PAPERS_2024_LINK.pdf" class="bg-slate-800 hover:bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg transition">Download</a>
+                        </div>
+                        <div class="bg-slate-950 border border-white/5 p-3 rounded-xl flex flex-col justify-between gap-2 text-center">
+                            <span class="text-[11px] font-bold text-slate-300 uppercase tracking-tight">Past Papers 2023</span>
+                            <a href="YAHAN_ICS_PAPERS_2023_LINK.pdf" class="bg-slate-800 hover:bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg transition">Download</a>
+                        </div>
+                        <div class="bg-slate-950 border border-white/5 p-3 rounded-xl flex flex-col justify-between gap-2 text-center">
+                            <span class="text-[11px] font-bold text-slate-300 uppercase tracking-tight">Past Papers 2022</span>
+                            <a href="YAHAN_ICS_PAPERS_2022_LINK.pdf" class="bg-slate-800 hover:bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg transition">Download</a>
+                        </div>
+                        <div class="bg-slate-950 border border-white/5 p-3 rounded-xl flex flex-col justify-between gap-2 text-center">
+                            <span class="text-[11px] font-bold text-slate-300 uppercase tracking-tight">Past Papers 2021</span>
+                            <a href="YAHAN_ICS_PAPERS_2021_LINK.pdf" class="bg-slate-800 hover:bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg transition">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================================================= -->
+            <!-- DEPARTMENT 4: GENERAL ARTS / HUMANITIES                                   -->
+            <!-- ========================================================================= -->
+            <section id="arts-section" class="view-fade space-y-6 pt-6 pb-12">
+                <div class="flex items-center gap-3 border-b border-slate-800 pb-3">
+                    <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400"><i class="fa-solid fa-palette"></i></div>
+                    <div>
+                        <h3 class="text-sm md:text-base font-black uppercase tracking-wider text-white">General Arts Notes & Past Papers</h3>
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Humanities Academic Program Vault</p>
+                    </div>
+                </div>
+
+                <!-- Part A: Subject Expert Notes -->
+                <div class="space-y-3">
+                    <h4 class="text-[10px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-2"><i class="fa-solid fa-note-sticky text-amber-400"></i> Subject Notes Section</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Arts Sub 1: Civics -->
+                        <div class="bg-slate-950 border border-white/5 p-4 rounded-xl flex items-center justify-between gap-4">
+                            <div>
+                                <h5 class="text-xs font-bold text-white uppercase tracking-tight">Civics Comprehensive Notes</h5>
+                                <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Arts Department Solved Notes</span>
+                            </div>
+                            <a href="YAHAN_ARTS_CIVICS_NOTES_PDF_LINK_DALEIN.pdf" class="bg-amber-600 hover:bg-amber-500 text-white p-2.5 rounded-lg text-xs transition shadow-md" title="Download PDF"><i class="fa-solid fa-download"></i></a>
+                        </div>
+                        <!-- Arts Sub 2: History / Islamiyat Elective -->
+                        <div class="bg-slate-950 border border-white/5 p-4 rounded-xl flex items-center justify-between gap-4">
+                            <div>
+                                <h5 class="text-xs font-bold text-white uppercase tracking-tight">Islamic Studies / History Notes</h5>
+                                <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Arts Academy Notes Set</span>
+                            </div>
+                            <a href="YAHAN_ARTS_HISTORY_NOTES_PDF_LINK_DALEIN.pdf" class="bg-amber-600 hover:bg-amber-500 text-white p-2.5 rounded-lg text-xs transition shadow-md" title="Download PDF"><i class="fa-solid fa-download"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part B: Past Papers All Together Block -->
+                <div class="bg-slate-950/40 border border-white/5 p-5 rounded-2xl space-y-3">
+                    <h4 class="text-[10px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-2"><i class="fa-solid fa-file-pdf text-blue-400"></i> General Arts 5-Year Past Papers Unified Set</h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+                        <div class="bg-slate-950 border border-white/5 p-3 rounded-xl flex flex-col justify-between gap-2 text-center">
+                            <span class="text-[11px] font-bold text-slate-300 uppercase tracking-tight">Past Papers 2025</span>
+                            <a href="YAHAN_ARTS_PAPERS_2025_LINK.pdf" class="bg-slate-800 hover:bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg transition">Download</a>
+                        </div>
+                        <div class="bg-slate-950 border border-white/5 p-3 rounded-xl flex flex-col justify-between gap-2 text-center">
+                            <span class="text-[11px] font-bold text-slate-300 uppercase tracking-tight">Past Papers 2024</span>
+                            <a href="YAHAN_ARTS_PAPERS_2024_LINK.pdf" class="bg-slate-800 hover:bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg transition">Download</a>
+                        </div>
+                        <div class="bg-slate-950 border border-white/5 p-3 rounded-xl flex flex-col justify-between gap-2 text-center">
+                            <span class="text-[11px] font-bold text-slate-300 uppercase tracking-tight">Past Papers 2023</span>
+                            <a href="YAHAN_ARTS_PAPERS_2023_LINK.pdf" class="bg-slate-800 hover:bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest py-1.5 rounded-lg transition">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-auto bg-slate-950 border-t border-slate-800 py-6 text-center text-[11px] font-bold uppercase tracking-widest text-slate-500 shrink-0">
+            &copy; 2026 Government Boys Inter College Kanak. Developed By Faheem Muhammad Shahi.
+        </footer>
+    </main>
+
+</body>
+</html>

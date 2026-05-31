@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Govt. Boys Inter College Kanak</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-800 font-sans antialiased">
+
+   <!-- ================= HEADER SECTION ================= -->
+<header class="text-slate-700 bg-white shadow-md sticky top-0 z-50 border-b border-gray-100">
+    <div class="container mx-auto flex py-4 px-6 justify-between items-center">
+        
+        <!-- LOGO SECTION -->
+        <a href="#home" class="flex items-center text-slate-900 cursor-pointer">
+            <div class="w-12 h-12 flex items-center justify-center overflow-hidden rounded-lg bg-white p-0.5 shadow-sm border border-gray-100">
+                <img src="logo.webp" alt="GBIC Kanak Logo" class="w-full h-full object-contain">
+            </div>
+            <div class="ml-3 flex flex-col">
+                <span class="text-base md:text-lg tracking-wide font-black text-slate-800 uppercase leading-tight">Govt. Boys Inter College</span>
+                <span class="text-[10px] text-emerald-600 font-bold tracking-widest uppercase mt-0.5">Kanak, Dist. Mastung</span>
+            </div>
+        </a>
+
+        <!-- NAVIGATION LINKS -->
+        <nav class="hidden lg:flex items-center text-[11px] font-extrabold tracking-widest space-x-5 text-slate-600 uppercase">
+            <a href="#about" class="hover:text-emerald-600 transition">About Us</a>
+            <a href="#programs" class="hover:text-emerald-600 transition">Programs</a>
+            <a href="#admissions" class="hover:text-emerald-600 transition">Admissions</a>
+            <a href="#student-hub" class="hover:text-emerald-600 transition">Student Hub</a>
+            
+            <!-- E-LIBRARY LINK -->
+            <a href="library.html" class="text-emerald-600 hover:text-emerald-700 transition flex items-center gap-1 bg-emerald-50/80 px-2.5 py-1 rounded-md border border-emerald-100">
+                <i class="fa-solid fa-book-open text-[10px]"></i> E-Library
+            </a>
+            
+            <a href="#news" class="hover:text-emerald-600 transition">News</a>
+            <a href="#contact" class="hover:text-emerald-600 transition">Contact</a>
+        </nav>
+
+        <!-- ACTION BUTTONS (SHIFTED TO HEADER) -->
+        <div class="hidden lg:flex items-center space-x-3">
+            <a href="student-login.html" class="border-2 border-slate-200 hover:border-slate-800 hover:bg-slate-800 hover:text-white text-slate-700 font-black tracking-wider text-[11px] py-2 px-4 rounded-xl uppercase transition duration-200 flex items-center gap-1.5">
+                <i class="fa-solid fa-user-graduate"></i> Login
+            </a>
+            <a href="admission-form.html" class="bg-emerald-600 hover:bg-emerald-700 text-white font-black tracking-wider text-[11px] py-2.5 px-5 rounded-xl uppercase shadow-md shadow-emerald-600/10 transition duration-200 transform hover:-translate-y-0.5">
+                Apply Now
+            </a>
+        </div>
+
+        <!-- MOBILE MENU BUTTON -->
+        <button id="menu-toggle-btn" class="lg:hidden text-slate-800 focus:outline-none p-2 text-2xl">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+</header>
+
+<!-- MOBILE DRAWER & OVERLAY -->
+<div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"></div>
+
+<div id="mobile-drawer" class="fixed inset-y-0 right-0 w-72 bg-slate-900 text-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out p-6 shadow-2xl lg:hidden">
+    <div class="flex justify-between items-center mb-8 border-b border-slate-800 pb-4">
+        <span class="text-lg font-bold text-emerald-400 uppercase tracking-wider">Main Menu</span>
+        <button id="menu-close-btn" class="text-2xl focus:outline-none hover:text-red-400"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    
+    <nav class="flex flex-col space-y-4 font-semibold text-sm tracking-wider uppercase">
+        <a href="#about" class="mobile-link py-2 border-b border-slate-800/50 hover:text-emerald-400 transition">About Us</a>
+        <a href="#programs" class="mobile-link py-2 border-b border-slate-800/50 hover:text-emerald-400 transition">Programs</a>
+        <a href="#admissions" class="mobile-link py-2 border-b border-slate-800/50 hover:text-emerald-400 transition">Admissions</a>
+        <a href="#student-hub" class="mobile-link py-2 border-b border-slate-800/50 hover:text-emerald-400 transition">Student Hub</a>
+        <a href="library.html" class="mobile-link py-2 border-b border-slate-800/50 text-emerald-400 flex items-center gap-2"><i class="fa-solid fa-book-open"></i> E-Library</a>
+        <a href="#news" class="mobile-link py-2 border-b border-slate-800/50 hover:text-emerald-400 transition">News & Events</a>
+        <a href="#contact" class="mobile-link py-2 hover:text-emerald-400 transition">Contact</a>
+        
+        <div class="flex flex-col space-y-3 pt-6 border-t border-slate-800">
+            <a href="student-login.html" class="mobile-link w-full border border-slate-700 bg-slate-800 text-center text-white font-bold py-2.5 rounded text-xs block tracking-widest">
+                Student Login
+            </a>
+            <a href="admission-form.html" class="mobile-link w-full bg-emerald-600 text-center text-white font-bold py-2.5 rounded text-xs block tracking-widest">
+                Admission Form (Apply)
+            </a>
+        </div>
+    </nav>
+</div>
+
+
+<!-- ================= HERO SECTION ================= -->
+<section id="home" class="relative min-h-[85vh] lg:min-h-[92vh] flex items-center bg-cover bg-center bg-no-repeat overflow-hidden" style="background-image: url('college.jpg');">
+    
+    <!-- Premium Overlay Gradient -->
+    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/75 to-transparent z-10"></div>
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px] z-10 pointer-events-none"></div>
+
+    <div class="container mx-auto px-6 md:px-12 lg:px-16 z-20 relative text-white py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Info Content -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-black tracking-widest uppercase py-2 px-4 rounded-full backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Admissions Open 2026-27
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.1] uppercase">
+                    Shape Your Vision<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-200">Empower Your Destiny.</span>
+                </h1>
+                
+                <p class="text-sm md:text-base text-gray-300 tracking-wide max-w-xl leading-relaxed font-normal">
+                    Welcome to Govt. Boys Inter College Kanak. We are transforming the youth of District Mastung with modern curriculum, expert academic mentorship, and critical leadership skills for tomorrow's challenges.
+                </p>
+
+                <!-- Micro Features List (Instead of old big buttons) -->
+                <div class="flex flex-wrap gap-x-6 gap-y-3 text-xs font-bold uppercase tracking-wider text-gray-400 pt-2">
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> BISE Quetta Affiliated</span>
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Free Digital Library</span>
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Modern Labs</span>
+                </div>
+            </div>
+
+            <!-- Right Spotlight Side-Cards (Adds extreme premium/professional feel) -->
+            <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                
+                <div class="bg-slate-900/40 border border-white/10 p-5 rounded-2xl backdrop-blur-md shadow-xl hover:border-emerald-500/40 transition duration-300">
+                    <div class="w-10 h-10 bg-emerald-500/20 text-emerald-400 flex items-center justify-center rounded-xl mb-4 text-lg">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="font-black uppercase text-sm tracking-wider text-white">4 Main Disciplines</h3>
+                    <p class="text-xs text-gray-400 mt-1">Pre-Medical, Pre-Eng, ICS, and Humanities programs.</p>
+                </div>
+
+                <div class="bg-slate-900/40 border border-white/10 p-5 rounded-2xl backdrop-blur-md shadow-xl hover:border-emerald-500/40 transition duration-300">
+                    <div class="w-10 h-10 bg-teal-500/20 text-teal-400 flex items-center justify-center rounded-xl mb-4 text-lg">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                    </div>
+                    <h3 class="font-black uppercase text-sm tracking-wider text-white">Digital Library</h3>
+                    <p class="text-xs text-gray-400 mt-1">Instant 24/7 access to text books, past papers & notes.</p>
+                </div>
+
+                <div class="bg-slate-900/40 border border-white/10 p-5 rounded-2xl backdrop-blur-md shadow-xl hover:border-emerald-500/40 transition duration-300 sm:col-span-2">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="font-black uppercase text-xs tracking-widest text-emerald-400">Online Registrations</h3>
+                            <p class="text-sm font-bold text-white mt-0.5">Secure your seat from home</p>
+                        </div>
+                        <a href="admission-form.html" class="bg-white hover:bg-emerald-600 hover:text-white text-slate-900 text-[11px] font-black uppercase px-4 py-2 rounded-xl transition duration-200">
+                            Apply Portal
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= DRAWER JAVASCRIPT ================= -->
+<script>
+    const menuToggleBtn = document.getElementById('menu-toggle-btn');
+    const menuCloseBtn = document.getElementById('menu-close-btn');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function openDrawer() {
+        mobileDrawer.classList.remove('translate-x-full');
+        mobileOverlay.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+    }
+
+    function closeDrawer() {
+        mobileDrawer.classList.add('translate-x-full');
+        mobileOverlay.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+    }
+
+    menuToggleBtn.addEventListener('click', openDrawer);
+    menuCloseBtn.addEventListener('click', closeDrawer);
+    mobileOverlay.addEventListener('click', closeDrawer);
+
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', closeDrawer);
+    });
+</script>
+   
+
+
+
+  <!-- ================= FEATURE QUICK LINKS CARDS ================= -->
+<!-- Note: Hero section ke fauran baad yeh cards render honge, jo layout ko modern banate hain -->
+<section class="relative z-30 px-6 md:px-12 lg:px-16 -mt-16 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- CARD 1: ACADEMIC PROGRAMS -->
+        <div class="group bg-white/95 border border-slate-200/60 rounded-2xl p-6 shadow-xl shadow-slate-900/5 hover:shadow-2xl hover:border-emerald-500/30 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between backdrop-blur-md">
+            <div>
+                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-5 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-sm">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h3 class="text-xs font-black tracking-widest text-slate-800 uppercase mb-2">
+                    Academic Programs
+                </h3>
+                <p class="text-xs font-semibold text-slate-500 leading-relaxed">
+                    Degrees, specialized faculties, and structured graduation pathways.
+                </p>
+            </div>
+            <div class="mt-6 flex items-center justify-between text-emerald-600 font-bold text-[11px] uppercase tracking-wider">
+                <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">View Courses</span>
+                <i class="fa-solid fa-arrow-right-long transition-transform duration-300 group-hover:translate-x-1.5"></i>
+            </div>
+        </div>
+
+        <!-- CARD 2: CAMPUS FACILITIES -->
+        <div class="group bg-white/95 border border-slate-200/60 rounded-2xl p-6 shadow-xl shadow-slate-900/5 hover:shadow-2xl hover:border-emerald-500/30 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between backdrop-blur-md">
+            <div>
+                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-5 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-sm">
+                    <i class="fa-solid fa-flask-vial"></i>
+                </div>
+                <h3 class="text-xs font-black tracking-widest text-slate-800 uppercase mb-2">
+                    Campus Facilities
+                </h3>
+                <p class="text-xs font-semibold text-slate-500 leading-relaxed">
+                    Modern science labs, well-stocked library, and sports hubs.
+                </p>
+            </div>
+            <div class="mt-6 flex items-center justify-between text-emerald-600 font-bold text-[11px] uppercase tracking-wider">
+                <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">Explore Labs</span>
+                <i class="fa-solid fa-arrow-right-long transition-transform duration-300 group-hover:translate-x-1.5"></i>
+            </div>
+        </div>
+
+        <!-- CARD 3: STUDENT LIFE -->
+        <div class="group bg-white/95 border border-slate-200/60 rounded-2xl p-6 shadow-xl shadow-slate-900/5 hover:shadow-2xl hover:border-emerald-500/30 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between backdrop-blur-md">
+            <div>
+                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-5 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-sm">
+                    <i class="fa-solid fa-people-group"></i>
+                </div>
+                <h3 class="text-xs font-black tracking-widest text-slate-800 uppercase mb-2">
+                    Student Life
+                </h3>
+                <p class="text-xs font-semibold text-slate-500 leading-relaxed">
+                    Extracurricular activities, societies, sports, and annual events.
+                </p>
+            </div>
+            <div class="mt-6 flex items-center justify-between text-emerald-600 font-bold text-[11px] uppercase tracking-wider">
+                <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">Read More</span>
+                <i class="fa-solid fa-arrow-right-long transition-transform duration-300 group-hover:translate-x-1.5"></i>
+            </div>
+        </div>
+
+        <!-- CARD 4: ADMISSION GUIDE -->
+        <div class="group bg-white/95 border border-slate-200/60 rounded-2xl p-6 shadow-xl shadow-slate-900/5 hover:shadow-2xl hover:border-emerald-500/30 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between backdrop-blur-md">
+            <div>
+                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-5 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-sm">
+                    <i class="fa-solid fa-file-invoice"></i>
+                </div>
+                <h3 class="text-xs font-black tracking-widest text-slate-800 uppercase mb-2">
+                    Admission Guide
+                </h3>
+                <p class="text-xs font-semibold text-slate-500 leading-relaxed">
+                    Step-by-step process, critical dates, and requirement criteria.
+                </p>
+            </div>
+            <div class="mt-6 flex items-center justify-between text-emerald-600 font-bold text-[11px] uppercase tracking-wider">
+                <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">How to Apply</span>
+                <i class="fa-solid fa-arrow-right-long transition-transform duration-300 group-hover:translate-x-1.5"></i>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= ABOUT / PRINCIPAL MESSAGE SECTION ================= -->
+<section id="about" class="py-20 md:py-28 bg-white">
+    <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            
+            <!-- Left Side: Elegant Portrait Layout -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-[340px]">
+                    <!-- Background Design Badges -->
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-emerald-600 to-teal-500 rounded-3xl transform rotate-3 z-0 opacity-10"></div>
+                    <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-emerald-500/10 rounded-full blur-xl pointer-events-none"></div>
+                    
+                    <!-- Frame Container -->
+                    <div class="relative z-20 overflow-hidden rounded-2xl shadow-2xl bg-slate-100 border-4 border-white aspect-[3/4] flex items-center justify-center group">
+                        <img src="principal.jpg.jpg" alt="College Principal" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-80 z-20"></div>
+                    </div>
+
+                    <!-- Float Header Label Overlay -->
+                    <div class="absolute bottom-4 left-4 right-4 bg-slate-900/90 backdrop-blur-md rounded-xl p-3.5 shadow-xl z-30 border border-white/10 text-center">
+                        <h4 class="text-xs font-black text-white uppercase tracking-wider">From the Principal's Desk</h4>
+                        <p class="text-[9px] font-bold text-emerald-400 uppercase tracking-widest mt-0.5">Govt. Boys Inter College Kanak</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Content Information -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="text-emerald-600 text-xs font-black tracking-widest uppercase flex items-center gap-2">
+                    <span class="w-8 h-[2px] bg-emerald-600"></span> Principal's Message
+                </div>
+
+                <h2 class="text-3xl md:text-4xl font-black text-slate-950 uppercase tracking-tight leading-[1.15]">
+                    Welcome to Govt. Boys <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-700">Inter College Kanak</span>
+                </h2>
+
+                <!-- Premium Styled Quote Box -->
+                <div class="bg-gradient-to-r from-emerald-50 to-transparent border-l-4 border-emerald-600 p-5 rounded-r-2xl my-6 shadow-sm shadow-emerald-600/5">
+                    <p class="text-xs md:text-sm font-extrabold text-slate-800 italic leading-relaxed">
+                        "Hamara maqsad sirf kitabi taleem dena nahi, balki Kanak aur Mastung ke naujawanon ko kal ka kamyab, ba-kirdar aur ba-salaheyat qaid banana hai."
+                    </p>
+                </div>
+
+                <!-- Descriptive Paragraphs -->
+                <div class="space-y-4 text-xs md:text-sm font-medium text-slate-600 leading-relaxed">
+                    <p>
+                        Government Boys Inter College Kanak mein aap sab ko khush-aamdeed. Is idaray ke Principal ki haisiyat se mera yeh pukhta azm hai ke hum apne students ko unke intermediate (FSc, FA, ICS) safar mein behtareen academic mahool, jadeed computer labs aur zaroori sahuliyat muhayya karein.
+                    </p>
+                    <p>
+                        Hum sirf classroom teaching par nahi balki kirdar sazi, self-discipline aur values par poori tawajah dete hain taake yahan se parh kar nikalne wale naujawan agay ja kar mulk ki premium universities mein apna muqam banayein aur Balochistan ka naam roshan karein.
+                    </p>
+                </div>
+
+                <!-- Signature Footer Area -->
+                <div class="pt-6 border-t border-slate-100 flex items-center justify-between flex-wrap gap-4">
+                    <div>
+                        <h3 class="text-sm font-black text-slate-900 uppercase tracking-wide">Principal</h3>
+                        <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mt-0.5">Govt. Boys Inter College Kanak</p>
+                    </div>
+                    <div class="font-serif text-slate-400 text-xs italic tracking-widest border-b border-dashed border-slate-300 pb-1 px-6 select-none bg-slate-50/50 py-1 rounded">
+                        Official Signature
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <section id="news" class="py-16 md:py-24 bg-gray-50 border-t border-b border-gray-200/60">
+        <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                <div class="space-y-3">
+                    <div class="text-emerald-600 text-xs font-black tracking-widest uppercase flex items-center gap-2">
+                        <span class="w-6 h-[2px] bg-emerald-600"></span> Campus Updates
+                    </div>
+                    <h2 class="text-2xl md:text-4xl font-black text-slate-900 uppercase tracking-tight">
+                        Latest News & Events
+                    </h2>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-xl py-2 px-4 shadow-sm inline-flex items-center gap-3 self-start md:self-auto">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                    <span class="text-xs font-extrabold text-slate-700 uppercase tracking-wider">Tree Planting Campaign 2022</span>
+                </div>
+            </div>
+
+            <div class="max-w-3xl mb-8">
+                <p class="text-xs md:text-sm font-semibold text-slate-500 leading-relaxed uppercase tracking-wide">
+                    Memorial Pictures of the tree planting campaign 2022 at Government Boys Inter College Kanak. Our students and faculty actively participated to make the campus green and environment friendly.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                
+                <div class="group relative overflow-hidden rounded-2xl bg-slate-200 border-4 border-white shadow-md hover:shadow-xl aspect-square transition-all duration-300">
+                    <img src="1.jpg" alt="Tree Planting Campaign 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <span class="text-[10px] font-black text-white tracking-widest uppercase">GBIC Kanak Gallery #1</span>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl bg-slate-200 border-4 border-white shadow-md hover:shadow-xl aspect-square transition-all duration-300">
+                    <img src="2.jpg" alt="Tree Planting Campaign 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <span class="text-[10px] font-black text-white tracking-widest uppercase">GBIC Kanak Gallery #2</span>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl bg-slate-200 border-4 border-white shadow-md hover:shadow-xl aspect-square transition-all duration-300">
+                    <img src="3.jpg" alt="Tree Planting Campaign 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <span class="text-[10px] font-black text-white tracking-widest uppercase">GBIC Kanak Gallery #3</span>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl bg-slate-200 border-4 border-white shadow-md hover:shadow-xl aspect-square transition-all duration-300">
+                    <img src="4.jpg" alt="Tree Planting Campaign 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <span class="text-[10px] font-black text-white tracking-widest uppercase">GBIC Kanak Gallery #4</span>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl bg-slate-200 border-4 border-white shadow-md hover:shadow-xl aspect-square transition-all duration-300">
+                    <img src="5.jpg" alt="Tree Planting Campaign 5" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <span class="text-[10px] font-black text-white tracking-widest uppercase">GBIC Kanak Gallery #5</span>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl bg-slate-200 border-4 border-white shadow-md hover:shadow-xl aspect-square transition-all duration-300">
+                    <img src="6.jpg" alt="Tree Planting Campaign 6" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <span class="text-[10px] font-black text-white tracking-widest uppercase">GBIC Kanak Gallery #6</span>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl bg-slate-200 border-4 border-white shadow-md hover:shadow-xl aspect-square transition-all duration-300">
+                    <img src="7.jpg" alt="Tree Planting Campaign 7" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <span class="text-[10px] font-black text-white tracking-widest uppercase">GBIC Kanak Gallery #7</span>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl bg-slate-200 border-4 border-white shadow-md hover:shadow-xl aspect-square transition-all duration-300">
+                    <img src="8.jpg" alt="Tree Planting Campaign 8" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                        <span class="text-[10px] font-black text-white tracking-widest uppercase">GBIC Kanak Gallery #8</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section id="announcements" class="py-16 bg-white border-b border-gray-200">
+        <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl">
+            
+            <div class="mb-12 space-y-2">
+                <div class="text-emerald-600 text-xs font-black tracking-widest uppercase flex items-center gap-2">
+                    <span class="w-6 h-[2px] bg-emerald-600"></span> Notice Board
+                </div>
+                <h2 class="text-2xl md:text-4xl font-black text-slate-900 uppercase tracking-tight">
+                    Important Announcements
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <div class="lg:col-span-7 space-y-6">
+                    
+                    <div class="bg-amber-50/60 border-l-4 border-amber-500 rounded-r-2xl p-6 shadow-sm" dir="rtl">
+                        <div class="flex items-center justify-between mb-3 border-b border-amber-200/60 pb-2">
+                            <span class="bg-amber-600 text-white text-[10px] font-black px-2.5 py-1 rounded uppercase tracking-wider">اہم اطلاع</span>
+                            <span class="text-xs font-bold text-slate-500">August 2022</span>
+                            <div class="bg-gradient-to-r from-emerald-50 to-teal-50 border-l-4 border-emerald-600 rounded-r-2xl p-6 shadow-md relative overflow-hidden" dir="rtl">
+                        <div class="absolute top-4 left-4 flex items-center gap-1.5 bg-emerald-600 text-white text-[9px] font-black px-2.5 py-1 rounded-full uppercase tracking-widest animate-pulse">
+                            <span class="w-1 h-1 rounded-full bg-white"></span> NEW 2026
+                        </div>
+                        
+                        <div class="mb-3 border-b border-emerald-200/60 pb-2 ml-16">
+                            <span class="text-xs font-bold text-slate-500">May 2026</span>
+                        </div>
+                        
+                        <h3 class="text-base md:text-lg font-black text-slate-900 mb-2 leading-relaxed">
+                            اطلاع عام: آن لائن داخلہ برائے فرسٹ ایئر (سیشن 2026-2027)
+                        </h3>
+                        
+                        <p class="text-sm font-semibold text-slate-700 leading-loose text-justify">
+                            میٹرک پاس کرنے والے تمام طلباء کو مطلع کیا جاتا ہے کہ گورنمنٹ بوائز انٹر کالج کانک میں نئے تعلیمی سال <span class="text-emerald-700 font-black">سیشن 2026-27</span> کے لیے ایف ایس سی (Pre-Medical / Pre-Engineering) اور ایف اے میں داخلوں کا باقاعدہ آغاز کر دیا گیا ہے۔ داخلہ فارم آن لائن پورٹل پر دستیاب ہیں۔
+                        </p>
+                        
+                        <div class="mt-4 bg-white/80 rounded-xl p-3 border border-emerald-200 flex items-center justify-between flex-wrap gap-2">
+                            <div class="text-xs font-black text-slate-800">
+                                <i class="fa-solid fa-calendar-days text-emerald-600 mr-1"></i> 
+                                داخلہ جمع کروانے کی آخری تاریخ:
+                            </div>
+                            <div class="text-sm font-black text-red-600 tracking-wide">
+                              10 جون 2026
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+                        <h3 class="text-base md:text-lg font-black text-slate-900 mb-2 leading-relaxed">
+                            اطلاع برائے داخلہ فرسٹ ایئر ایف اے / ایف ایس سی سال 2022-2024
+                        </h3>
+                        <p class="text-sm font-semibold text-slate-700 leading-loose text-justify">
+                            ایف۔اے/ ایف۔ایس۔سی میں داخلہ لینے والے وہ خواہشمند طلباء و طالبات کو اطلاع دی جاتی ہے کہ محکمہ تعلیم (کالجز) نے حالیہ طوفانی بارشوں و سیلابی صورتحال کے پیش نظر داخلے کی تاریخ میں توسیع کرکے <span class="text-amber-700 font-black">31 اگست 2022</span> تک مقرر کی ہے۔ لہذا داخلہ کے خواہشمند تمام طلباء و طالبات کو اطلاع دی جاتی ہے کہ وہ جلد از جلد اپنا داخلہ کروائیں۔
+                        </p>
+                        <div class="mt-3 text-xs font-black text-emerald-600">
+                            (نوٹ): داخلہ پورٹل نظام کے تحت آن لائن ہوگا۔
+                        </div>
+                    </div>
+
+                    <div class="bg-emerald-50/40 border-l-4 border-emerald-600 rounded-r-2xl p-6 shadow-sm" dir="rtl">
+                        <div class="flex items-center justify-between mb-3 border-b border-emerald-200/60 pb-2">
+                            <span class="bg-emerald-600 text-white text-[10px] font-black px-2.5 py-1 rounded uppercase tracking-wider">نیوز الرٹ</span>
+                            <span class="text-xs font-bold text-slate-500">1 August 2022</span>
+                        </div>
+                        <p class="text-sm font-semibold text-slate-700 leading-loose text-justify mb-4">
+                            گورنمنٹ بوائز انٹر کالج کانک ضلع مستونگ میں دوسرے کالجز کی طرح <span class="font-black text-slate-900">ایف ایس سی</span> اور <span class="font-black text-slate-900">ایف اے</span> میں آن لائن داخلوں کا آغاز 1 اگست 2022 سے شروع ہو چکے ہیں۔ اور فی الوقت ان داخلوں کی آخری تاریخ 20 اگست 2022 مقرر ہے۔ لہٰذا داخلے کے خواہشمند طلباء جلد از جلد داخلے کے لئے اپلائی کریں یا کالج کلرک آفس وزٹ کریں۔
+                        </p>
+                        
+                        <div class="bg-white/80 rounded-xl p-4 border border-emerald-100 space-y-2 text-xs md:text-sm">
+                            <h4 class="font-black text-emerald-700 mb-2">داخلہ فارم کے ساتھ درج ذیل کوائف کی فوٹو کاپیاں کالج میں جمع کروائیں:</h4>
+                            <ul class="list-decimal list-inside space-y-1.5 font-bold text-slate-600">
+                                <li>میٹرک رزلٹ کارڈ (3 کاپی تصدیق شدہ)</li>
+                                <li>لوکل سرٹیفکیٹ (3 کاپی تصدیق شدہ)</li>
+                                <li>بے فارم نادرہ (3 کاپی تصدیق شدہ)</li>
+                                <li>سر پرست شناختی کارڈ (3 کاپی تصدیق شدہ)</li>
+                                <li>تصاویر سفید بیک گراؤنڈ (6 عدد)</li>
+                                <li>حلفیہ بیان (بونڈ پیپر)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div class="bg-slate-900 text-white rounded-3xl overflow-hidden shadow-xl border border-slate-800 group">
+                        
+                        <div class="relative overflow-hidden aspect-[4/3] bg-slate-800 flex items-center justify-center">
+                            <img src="9.jpg" alt="Flock of sheep resting beneath mulberry tree" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md rounded-xl py-1 px-3 text-[10px] font-black uppercase tracking-widest text-emerald-400">
+                                12 April 2022
+                            </div>
+                        </div>
+
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-xs font-black text-emerald-400 tracking-wider uppercase">Featured Campus Capture</h3>
+                            <p class="text-sm font-bold tracking-wide text-slate-200 leading-relaxed">
+                                A flock of sheep is resting beneath the canopy of a mulberry tree near Khoshkaak, Mastung. 
+                            </p>
+                            <p class="text-xs font-medium text-slate-400 leading-relaxed">
+                                What a great benefit of a shady tree that is giving shade to almost hundreds of sheep.
+                            </p>
+                            
+                            <div class="pt-4 border-t border-slate-800 flex items-center gap-2 text-[11px] font-bold text-slate-400 italic">
+                                <i class="fa-solid fa-camera text-emerald-500 text-xs"></i>
+                                Photo courtesy by our worthy principal Fareed M. Shahi Shab
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="programs" class="py-16 md:py-24 bg-white border-b border-gray-100">
+        <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="text-emerald-600 text-xs font-black tracking-widest uppercase inline-flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-600"></span> Education Pathways
+                </div>
+                <h2 class="text-2xl md:text-4xl font-black text-slate-900 uppercase tracking-tight">
+                    Our Academic Programs
+                </h2>
+                <p class="text-xs md:text-sm font-semibold text-slate-500 leading-relaxed uppercase tracking-wide">
+                    Government Boys Inter College Kanak offers well-structured Intermediate programs recognized by the board, helping youth build a solid foundation for higher studies.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:border-emerald-500/30">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 text-xl group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-heart-pulse"></i>
+                            </div>
+                            <span class="text-[9px] font-black tracking-widest uppercase bg-slate-200 text-slate-700 py-1 px-2.5 rounded-md">2 Years</span>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-sm font-black text-slate-900 uppercase tracking-wide">F.Sc Pre-Medical</h3>
+                            <p class="text-[10px] font-bold text-emerald-600 uppercase tracking-wider mt-0.5">Medical Science Track</p>
+                        </div>
+                        
+                        <div class="pt-2 space-y-2">
+                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-wider block">Core Subjects:</span>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-[10px] font-bold bg-white border border-slate-200 text-slate-600 px-2 py-0.5 rounded-md">Biology</span>
+                                <span class="text-[10px] font-bold bg-white border border-slate-200 text-slate-600 px-2 py-0.5 rounded-md">Chemistry</span>
+                                <span class="text-[10px] font-bold bg-white border border-slate-200 text-slate-600 px-2 py-0.5 rounded-md">Physics</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                        Eligibility: Matric Science
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:border-emerald-500/30">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 text-xl group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-compass-drafting"></i>
+                            </div>
+                            <span class="text-[9px] font-black tracking-widest uppercase bg-slate-200 text-slate-700 py-1 px-2.5 rounded-md">2 Years</span>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-sm font-black text-slate-900 uppercase tracking-wide">F.Sc Pre-Engineering</h3>
+                            <p class="text-[10px] font-bold text-emerald-600 uppercase tracking-wider mt-0.5">Engineering Track</p>
+                        </div>
+                        
+                        <div class="pt-2 space-y-2">
+                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-wider block">Core Subjects:</span>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-[10px] font-bold bg-white border border-slate-200 text-slate-600 px-2 py-0.5 rounded-md">Mathematics</span>
+                                <span class="text-[10px] font-bold bg-white border border-slate-200 text-slate-600 px-2 py-0.5 rounded-md">Chemistry</span>
+                                <span class="text-[10px] font-bold bg-white border border-slate-200 text-slate-600 px-2 py-0.5 rounded-md">Physics</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                        Eligibility: Matric Science
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:border-emerald-500/30">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 text-xl group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <span class="text-[9px] font-black tracking-widest uppercase bg-slate-200 text-slate-700 py-1 px-2.5 rounded-md">2 Years</span>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-sm font-black text-slate-900 uppercase tracking-wide">I.C.S</h3>
+                            <p class="text-[10px] font-bold text-emerald-600 uppercase tracking-wider mt-0.5">Computer Science Track</p>
+                        </div>
+                        
+                        <div class="pt-2 space-y-2">
+                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-wider block">Core Subjects:</span>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-[10px] font-bold bg-white border border-slate-200 text-slate-600 px-2 py-0.5 rounded-md">Computer Science</span>
+                                <span class="text-[10px] font-bold bg-white border border-slate-200 text-slate-600 px-2 py-0.5 rounded-md">Mathematics</span>
+                                <span class="text-[10px] font-bold bg-white border border-slate-200 text-slate-600 px-2 py-0.5 rounded-md">Physics</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                        Eligibility: Matric Science / Arts
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:border-emerald-500/30">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 text-xl group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                                <i class="fa-solid fa-book-open-reader"></i>
+                            </div>
+                            <span class="text-[9px] font-black tracking-widest uppercase bg-slate-200 text-slate-700 py-1 px-2.5 rounded-md">2 Years</span>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-sm font-black text-slate-900 uppercase tracking-wide">F.A (Arts)</h3>
+                            <p class="text-[10px] font-bold text-emerald-600 uppercase tracking-wider mt-0.5">Humanities Track</p>
+                        </div>
+                        
+                        <div class="pt-2 space-y-2">
+                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-wider block">Core Subjects:</span>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-[10px] font-bold bg-white border border-slate-200 text-slate-600 px-2 py-0.5 rounded-md">Civics</span>
+                                <span class="text-[10px] font-bold bg-white border border-slate-200 text-slate-600 px-2 py-0.5 rounded-md">History</span>
+                                <span class="text-[10px] font-bold bg-white border border-slate-200 text-slate-600 px-2 py-0.5 rounded-md">Economics</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                        Eligibility: Matric Pass
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="student-hub" class="py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden">
+        
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-teal-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="text-emerald-400 text-xs font-black tracking-widest uppercase inline-flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Student Resources
+                </div>
+                <h2 class="text-2xl md:text-4xl font-black uppercase tracking-tight">
+                    Welcome to Student Hub
+                </h2>
+                <p class="text-xs md:text-sm font-semibold text-slate-400 leading-relaxed uppercase tracking-wide">
+                    Access your essential academic utilities, download course materials, check exam schedules, and manage your digital identity at GBIC Kanak.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="bg-slate-800/50 border border-slate-800 rounded-2xl p-6 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between group shadow-lg">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-xl group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-cloud-arrow-down"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-black tracking-widest uppercase">Academic Downloads</h3>
+                            <p class="text-[11px] font-bold text-slate-400 mt-2 leading-relaxed">
+                                Download BISE Quetta Board syllabus, past papers, and intermediate assignment formats in PDF.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80">
+                        <a href="#downloads" class="inline-flex items-center text-[10px] font-black text-emerald-400 tracking-widest uppercase hover:text-emerald-300 transition gap-1">
+                            Browse Files <i class="fa-solid fa-angle-right transition-transform group-hover:translate-x-0.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/50 border border-slate-800 rounded-2xl p-6 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between group shadow-lg">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-xl group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-id-card-clip"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-black tracking-widest uppercase">Online Student Portal</h3>
+                            <p class="text-[11px] font-bold text-slate-400 mt-2 leading-relaxed">
+                                Log in to your personal dashboard to track daily attendance percentage, fee submissions, and monthly test reports.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80">
+                        <a href="student-login.html" class="inline-flex items-center text-[10px] font-black text-emerald-400 tracking-widest uppercase hover:text-emerald-300 transition gap-1">
+                            Secure Login <i class="fa-solid fa-lock text-[9px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/50 border border-slate-800 rounded-2xl p-6 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between group shadow-lg">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-xl group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-black tracking-widest uppercase">Exams & Timetables</h3>
+                            <p class="text-[11px] font-bold text-slate-400 mt-2 leading-relaxed">
+                                View daily class schedules, intermediate board exam datesheets, and notices regarding annual sports galas.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80">
+                        <a href="#calendar" class="inline-flex items-center text-[10px] font-black text-emerald-400 tracking-widest uppercase hover:text-emerald-300 transition gap-1">
+                            View Schedule <i class="fa-solid fa-angle-right transition-transform group-hover:translate-x-0.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/50 border border-slate-800 rounded-2xl p-6 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between group shadow-lg">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-xl group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-black tracking-widest uppercase">Code of Conduct</h3>
+                            <p class="text-[11px] font-bold text-slate-400 mt-2 leading-relaxed">
+                                Review strict campus discipline rules, uniform regulations, and attendance maintenance requirements.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80">
+                        <a href="#rules" class="inline-flex items-center text-[10px] font-black text-emerald-400 tracking-widest uppercase hover:text-emerald-300 transition gap-1">
+                            Read Rules <i class="fa-solid fa-angle-right transition-transform group-hover:translate-x-0.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+  <footer id="contact" class="bg-slate-900 text-white pt-16 pb-8 border-t border-slate-800 relative z-30">
+        <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-12 border-b border-slate-800">
+                
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 flex items-center justify-center overflow-hidden rounded-lg bg-white p-0.5 shadow-sm">
+                            <img src="logo.webp" alt="GBIC Kanak Logo" class="w-full h-full object-contain">
+                        </div>
+                        <div class="ml-3 flex flex-col">
+                            <span class="text-sm tracking-wide font-black uppercase text-white leading-tight">Govt. Boys Inter College</span>
+                            <span class="text-[9px] text-emerald-400 font-bold tracking-widest uppercase mt-0.5">Kanak, Mastung</span>
+                        </div>
+                    </div>
+                    <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider leading-relaxed">
+                        Providing quality intermediate education and empowering the next generation of leadership in Balochistan.
+                    </p>
+                    
+                    <div class="space-y-2 pt-2">
+                        <span class="text-[10px] font-black text-slate-500 uppercase tracking-widest block">Connect With Us:</span>
+                        <a href="https://www.facebook.com/share/15Zbe6f1vU/" target="_blank" class="inline-flex items-center gap-2.5 bg-blue-600/10 border border-blue-500/20 text-blue-400 hover:bg-blue-600 hover:text-white px-4 py-2 rounded-xl text-xs font-black tracking-wider uppercase transition-all duration-300">
+                            <i class="fa-brands fa-facebook-f text-sm"></i>
+                            Official Facebook Page
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3 space-y-4">
+                    <h3 class="text-xs font-black tracking-widest text-emerald-400 uppercase">Contact Details</h3>
+                    
+                    <ul class="space-y-3 text-xs font-bold text-slate-300 uppercase tracking-wide">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-phone text-emerald-400 mt-0.5 text-sm"></i>
+                            <div class="flex flex-col gap-1">
+                                <span>+92 3327902893</span>
+                                <span class="text-[10px] text-slate-500">Principal Office</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-envelope text-emerald-400 mt-0.5 text-sm"></i>
+                            <span class="lowercase text-slate-300 font-semibold tracking-normal break-all">info@gbickanak.edu.pk</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-emerald-400 mt-0.5 text-sm"></i>
+                            <span>Kanak, District Mastung, Balochistan, Pakistan.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-5 space-y-4">
+                    <h3 class="text-xs font-black tracking-widest text-emerald-400 uppercase">Campus Location Map</h3>
+                    
+                    <div class="w-full h-48 rounded-2xl overflow-hidden border-2 border-slate-800 shadow-inner relative bg-slate-800">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14068.790514101742!2d66.741005234127!3d29.87869686000213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1m3!1s0x3edd6feaa1fc342f%3A0xc3cf93655dfcebf6!2sGovt%20Boys%20Inter%20College%20Kanak!5e0!3m2!1sen!2s!4v1716584200000!5m2!1sen!2s" 
+                            class="absolute top-0 left-0 w-full h-full border-0 grayscale opacity-85 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Section With Vercel Link & Updated Name -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                <p>© 2026 Government Boys Inter College Kanak. All Rights Reserved.</p>
+                
+                <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-center sm:text-right">
+                    <p class="flex items-center gap-1">
+                        Powered by 
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 font-extrabold">Ziddi Tech Hub</span>
+                    </p>
+                    <span class="hidden sm:inline text-slate-700">|</span>
+                    <p>
+                        Developer: 
+                        <a href="https://own-portfolio-orcin-one.vercel.app/" target="_blank" class="text-slate-400 hover:text-emerald-400 border-b border-dashed border-slate-600 hover:border-emerald-400 pb-0.5 transition-all duration-300 ease-in-out">
+                            MUHAMMAD FAHEEM
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+
+<script type="text/javascript">
+    (function(d, m){
+        var kommunicateSettings = 
+            {"appId":"3c86fa2db196733837281f1d69006eb9e","popupWidget":true,"automaticChatOpenOnNavigation":true};
+        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+        s.src = "https://widget.kommunicate.io/kommunicate-widget-3.0.min.js";
+        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+        window.kommunicate = m; m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
+/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+</script>
+</html>
